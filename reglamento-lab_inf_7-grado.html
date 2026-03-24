@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manual Interactivo - Laboratorio de Informática CFIB</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+        
+        body { font-family: 'Poppins', sans-serif; background: #f1f5f9; color: #1e293b; scroll-behavior: smooth; }
+        
+        .tab-content { display: none; }
+        .tab-content.active { display: block; animation: fadeIn 0.5s ease-out; }
+        
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+        .quiz-card { transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
+        .option-btn { transition: all 0.2s; border: 2px solid #e2e8f0; }
+        .option-btn:hover { border-color: #3b82f6; background-color: #eff6ff; }
+        .option-correct { border-color: #10b981 !important; background-color: #ecfdf5 !important; color: #065f46; }
+        .option-wrong { border-color: #ef4444 !important; background-color: #fef2f2 !important; color: #991b1b; }
+        
+        .progress-bar { transition: width 0.4s ease; }
+    </style>
+</head>
+<body>
+
+    <!-- Encabezado Institucional -->
+    <header class="bg-[#003366] text-white p-8 shadow-2xl text-center border-b-4 border-yellow-500">
+        <h1 class="text-3xl md:text-4xl font-extrabold uppercase tracking-tight">C.F.I.B.A. Papa Francisco</h1>
+        <p class="text-yellow-400 font-medium mt-2">Laboratorio de Informática - 7° Grado</p>
+        <p class="text-sm text-blue-200">MEDUCA | Dirección Regional de Herrera, Panamá</p>
+    </header>
+
+    <main class="max-w-5xl mx-auto p-6 md:py-12">
+        
+        <!-- Navegación Principal -->
+        <nav class="flex flex-wrap justify-center gap-3 mb-10">
+            <button onclick="showTab('rules')" class="tab-btn px-6 py-3 bg-blue-800 text-white rounded-xl font-bold shadow-md">Reglamento</button>
+            <button onclick="showTab('ergonomics')" class="tab-btn px-6 py-3 bg-white text-slate-700 rounded-xl font-bold shadow-sm border border-slate-200">Ergonomía</button>
+            <button onclick="showTab('power')" class="tab-btn px-6 py-3 bg-white text-slate-700 rounded-xl font-bold shadow-sm border border-slate-200">Operación</button>
+            <button onclick="showTab('quiz')" class="tab-btn px-6 py-3 bg-yellow-500 text-blue-900 rounded-xl font-bold shadow-md hover:bg-yellow-400">¡Reto Interactivo!</button>
+        </nav>
+
+        <!-- SECCIÓN 1: REGLAMENTO -->
+        <section id="rules" class="tab-content active">
+            <div class="grid md:grid-cols-2 gap-8 items-center mb-8">
+                <div>
+                    <h2 class="text-3xl font-bold text-blue-900 mb-4">Normas de Convivencia</h2>
+                    <p class="text-slate-600 mb-6 font-medium italic">"El respeto al equipo es el respeto a tu educación."</p>
+                    <div class="space-y-3">
+                        <div class="p-4 bg-white rounded-lg shadow-sm border-l-4 border-blue-600 flex gap-3">
+                            <span class="font-bold text-blue-600">01.</span>
+                            <p class="text-sm">Uso estricto de la estación de trabajo asignada por el profesor.</p>
+                        </div>
+                        <div class="p-4 bg-white rounded-lg shadow-sm border-l-4 border-red-500 flex gap-3">
+                            <span class="font-bold text-red-600">02.</span>
+                            <p class="text-sm">Prohibido el ingreso con alimentos, bebidas o gomas de mascar.</p>
+                        </div>
+                        <div class="p-4 bg-white rounded-lg shadow-sm border-l-4 border-yellow-500 flex gap-3">
+                            <span class="font-bold text-yellow-600">03.</span>
+                            <p class="text-sm">No conectar memorias USB sin autorización previa (Riesgo de Virus).</p>
+                        </div>
+                        <div class="p-4 bg-white rounded-lg shadow-sm border-l-4 border-green-500 flex gap-3">
+                            <span class="font-bold text-green-600">04.</span>
+                            <p class="text-sm">Navegación exclusiva en sitios educativos y pedagógicos.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-blue-50 p-6 rounded-3xl flex justify-center border border-blue-100">
+                    <svg class="w-48 h-48 text-blue-700 opacity-80" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 11V16M12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12C21 16.9706 16.9706 21 12 21ZM12.05 8V8.1L11.95 8.1V8H12.05Z"></path>
+                    </svg>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECCIÓN 2: ERGONOMÍA -->
+        <section id="ergonomics" class="tab-content">
+            <h2 class="text-3xl font-bold text-slate-800 mb-8 text-center">Ergonomía Estudiantil en 10° Grado</h2>
+            <div class="grid md:grid-cols-3 gap-6">
+                <div class="bg-white p-6 rounded-2xl shadow-sm border-b-4 border-blue-500 text-center">
+                    <div class="text-3xl mb-3">👁️</div>
+                    <h3 class="font-bold mb-2">Vista Saludable</h3>
+                    <p class="text-xs text-slate-500">Monitor a 50cm de distancia y borde superior al nivel de los ojos.</p>
+                </div>
+                <div class="bg-white p-6 rounded-2xl shadow-sm border-b-4 border-green-500 text-center">
+                    <div class="text-3xl mb-3">🪑</div>
+                    <h3 class="font-bold mb-2">Espalda Recta</h3>
+                    <p class="text-xs text-slate-500">Usa el respaldo de la silla. No te encorves sobre el teclado.</p>
+                </div>
+                <div class="bg-white p-6 rounded-2xl shadow-sm border-b-4 border-orange-500 text-center">
+                    <div class="text-3xl mb-3">👣</div>
+                    <h3 class="font-bold mb-2">Pies Firmes</h3>
+                    <p class="text-xs text-slate-500">Ambos pies deben tocar el suelo. Evita cruzar las piernas.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECCIÓN 3: OPERACIÓN -->
+        <section id="power" class="tab-content">
+            <div class="bg-white p-8 rounded-3xl shadow-sm border border-slate-200">
+                <h2 class="text-3xl font-bold text-slate-800 mb-6">Protocolos de Energía</h2>
+                <div class="grid md:grid-cols-2 gap-10">
+                    <div>
+                        <h3 class="text-xl font-bold text-blue-700 mb-4 flex items-center"><span class="mr-2">⚡</span> Encendido</h3>
+                        <ul class="space-y-2 text-sm text-slate-600">
+                            <li>1. Encender Regulador/UPS.</li>
+                            <li>2. Encender CPU (una pulsación).</li>
+                            <li>3. Encender Monitor.</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold text-red-600 mb-4 flex items-center"><span class="mr-2">🔌</span> Apagado</h3>
+                        <ul class="space-y-2 text-sm text-slate-600">
+                            <li>1. Cerrar todos los programas.</li>
+                            <li>2. Menú Inicio -> Apagar Sistema.</li>
+                            <li>3. Apagar monitor y regulador al final.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECCIÓN 4: QUIZ INTERACTIVO (NUEVA) -->
+        <section id="quiz" class="tab-content">
+            <div class="max-w-2xl mx-auto bg-white p-8 rounded-3xl shadow-xl border border-yellow-100">
+                <!-- Header Quiz -->
+                <div class="flex justify-between items-center mb-6">
+                    <h2 class="text-2xl font-bold text-blue-900">Evaluación de Laboratorio</h2>
+                    <span id="question-counter" class="bg-blue-100 text-blue-700 px-3 py-1 rounded-full text-xs font-bold">Pregunta 1 de 5</span>
+                </div>
+
+                <!-- Barra de Progreso -->
+                <div class="w-full bg-slate-100 h-2 rounded-full mb-8 overflow-hidden">
+                    <div id="quiz-progress" class="progress-bar bg-yellow-500 h-full" style="width: 20%"></div>
+                </div>
+
+                <!-- Contenedor de Pregunta -->
+                <div id="quiz-container">
+                    <p id="question-text" class="text-lg font-semibold text-slate-800 mb-6">¿Cuál es el procedimiento correcto para apagar la computadora?</p>
+                    
+                    <div id="options-grid" class="grid gap-4">
+                        <!-- Opciones dinámicas -->
+                        <button onclick="checkAnswer(0)" class="option-btn p-4 rounded-xl text-left text-sm font-medium">Desconectarla directamente del tomacorriente.</button>
+                        <button onclick="checkAnswer(1)" class="option-btn p-4 rounded-xl text-left text-sm font-medium">Cerrar programas y usar la opción 'Apagar' del menú inicio.</button>
+                        <button onclick="checkAnswer(2)" class="option-btn p-4 rounded-xl text-left text-sm font-medium">Dejarla encendida para el siguiente compañero.</button>
+                    </div>
+                </div>
+
+                <!-- Pantalla de Resultados (Oculta al inicio) -->
+                <div id="results-screen" class="hidden text-center py-6">
+                    <div id="result-icon" class="text-6xl mb-4">🏆</div>
+                    <h3 class="text-2xl font-bold mb-2">¡Resultado Final!</h3>
+                    <p id="result-score" class="text-4xl font-black text-blue-900 mb-4">0/5</p>
+                    <p id="result-msg" class="text-slate-600 mb-8">Has completado el repaso de normas del C.F.I.B. Azuero Papa Francisco.</p>
+                    <button onclick="resetQuiz()" class="bg-blue-800 text-white px-8 py-3 rounded-xl font-bold hover:bg-blue-700 transition">Intentar de Nuevo</button>
+                </div>
+
+                <div id="feedback" class="mt-6 p-3 rounded-lg text-center font-bold text-sm hidden"></div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="mt-12 py-10 border-t border-slate-200 text-center text-slate-400 text-xs">
+        <p>C.F.I.B.A. Papa Francisco - Dirección Regional de Herrera</p>
+        <p class="mt-1 italic">Educando para el futuro con tecnología y valores.</p>
+    </footer>
+
+    <script>
+        const quizData = [
+            {
+                q: "¿Cuál es el procedimiento correcto para apagar la computadora?",
+                a: ["Desconectarla directamente del tomacorriente.", "Cerrar programas y usar la opción 'Apagar' del menú inicio.", "Dejarla encendida para el siguiente compañero."],
+                c: 1
+            },
+            {
+                q: "Según el reglamento del CFIB, ¿qué sucede si necesitas usar una memoria USB?",
+                a: ["Puedes conectarla libremente en cualquier puerto.", "Debes pedir autorización al docente para escaneo de virus.", "Solo se permiten memorias de color institucional."],
+                c: 1
+            },
+            {
+                q: "En ergonomía, ¿a qué distancia debe estar el monitor de tus ojos?",
+                a: ["Lo más cerca posible para leer mejor.", "A unos 20 centímetros.", "Aproximadamente 50 a 60 centímetros (un brazo)."],
+                c: 2
+            },
+            {
+                q: "Si un equipo presenta una falla técnica, el estudiante debe:",
+                a: ["Intentar abrir el CPU para ver qué sucede.", "Reportar de inmediato al docente encargado.", "Cambiar cables con la estación vecina."],
+                c: 1
+            },
+            {
+                q: "¿Qué norma es fundamental respecto a la higiene en el laboratorio?",
+                a: ["Se permite comer si el docente no está mirando.", "No se permite el ingreso de ningún tipo de alimento o bebida.", "Se puede beber agua siempre que sea en botella plástica."],
+                c: 1
+            }
+        ];
+
+        let currentQ = 0;
+        let score = 0;
+        let canAnswer = true;
+
+        function showTab(tabId) {
+            document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
+            document.querySelectorAll('.tab-btn').forEach(b => {
+                b.className = "tab-btn px-6 py-3 bg-white text-slate-700 rounded-xl font-bold shadow-sm border border-slate-200";
+            });
+            
+            document.getElementById(tabId).classList.add('active');
+            event.currentTarget.className = (tabId === 'quiz') 
+                ? "tab-btn px-6 py-3 bg-yellow-500 text-blue-900 rounded-xl font-bold shadow-md"
+                : "tab-btn px-6 py-3 bg-blue-800 text-white rounded-xl font-bold shadow-md";
+        }
+
+        function loadQuestion() {
+            canAnswer = true;
+            const feedback = document.getElementById('feedback');
+            feedback.classList.add('hidden');
+            
+            const q = quizData[currentQ];
+            document.getElementById('question-text').innerText = q.q;
+            document.getElementById('question-counter').innerText = `Pregunta ${currentQ + 1} de ${quizData.length}`;
+            document.getElementById('quiz-progress').style.width = ((currentQ + 1) / quizData.length * 100) + "%";
+            
+            const optionsGrid = document.getElementById('options-grid');
+            optionsGrid.innerHTML = '';
+            
+            q.a.forEach((opt, index) => {
+                const btn = document.createElement('button');
+                btn.innerText = opt;
+                btn.className = "option-btn p-4 rounded-xl text-left text-sm font-medium";
+                btn.onclick = () => checkAnswer(index, btn);
+                optionsGrid.appendChild(btn);
+            });
+        }
+
+        function checkAnswer(idx, btn) {
+            if(!canAnswer) return;
+            canAnswer = false;
+
+            const correctIdx = quizData[currentQ].c;
+            const feedback = document.getElementById('feedback');
+            feedback.classList.remove('hidden');
+
+            if(idx === correctIdx) {
+                score++;
+                btn.classList.add('option-correct');
+                feedback.innerText = "¡Correcto! Muy bien hecho.";
+                feedback.className = "mt-6 p-3 rounded-lg text-center font-bold text-sm bg-green-100 text-green-700";
+            } else {
+                btn.classList.add('option-wrong');
+                feedback.innerText = "Incorrecto. Repasa esta norma en el manual.";
+                feedback.className = "mt-6 p-3 rounded-lg text-center font-bold text-sm bg-red-100 text-red-700";
+            }
+
+            setTimeout(() => {
+                currentQ++;
+                if(currentQ < quizData.length) {
+                    loadQuestion();
+                } else {
+                    showResults();
+                }
+            }, 1500);
+        }
+
+        function showResults() {
+            document.getElementById('quiz-container').classList.add('hidden');
+            document.getElementById('feedback').classList.add('hidden');
+            document.getElementById('results-screen').classList.remove('hidden');
+            document.getElementById('result-score').innerText = `${score} / ${quizData.length}`;
+            
+            const msg = document.getElementById('result-msg');
+            const icon = document.getElementById('result-icon');
+            
+            if(score === 5) {
+                icon.innerText = "🏆";
+                msg.innerText = "¡Excelente! Eres un experto en el reglamento del Laboratorio.";
+            } else if(score >= 3) {
+                icon.innerText = "👏";
+                msg.innerText = "Buen trabajo, pero te recomendamos repasar los puntos que fallaste.";
+            } else {
+                icon.innerText = "📚";
+                msg.innerText = "Es importante que vuelvas a leer el manual antes de tu clase práctica.";
+            }
+        }
+
+        function resetQuiz() {
+            currentQ = 0;
+            score = 0;
+            document.getElementById('quiz-container').classList.remove('hidden');
+            document.getElementById('results-screen').classList.add('hidden');
+            loadQuestion();
+        }
+
+        // Carga inicial
+        window.onload = loadQuestion;
+    </script>
+</body>
+</html>
